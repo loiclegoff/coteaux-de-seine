@@ -1,0 +1,19 @@
+{
+  /* add colors :) */
+  "pretty": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "allowJs": true
+  },
+  "exclude": ["node_modules", "public", "lambda", ".cache", "src/cms"]
+}

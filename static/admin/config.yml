@@ -1,0 +1,112 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "toolbox"
+    label: "Boîte à Outils"
+    folder: "src/pages/toolbox"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "toolbox-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Page d'accueil"
+        name: "index"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - { label: Image, name: image, widget: image }
+          - { label: Titre, name: title, widget: string }
+          - { label: Sous-titre, name: subtitle, widget: string }
+          - { label: Description, name: description, widget: string }
+      - file: "src/pages/agenda/index.md"
+        label: "Agenda"
+        name: "agenda"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "agenda-page",
+            }
+          - {
+              label: "Evénements",
+              name: "events",
+              widget: "list",
+              fields:
+                [
+                  { label: "Date de début", name: dateStart, widget: date },
+                  { label: "Date de fin", name: dateEnd, widget: date },
+                  { label: "Intitulé", name: title, widget: string },
+                  { label: "Text", name: text, widget: string },
+                  { label: "Détails", name: detailedText, widget: string },
+                  { label: "Lien image", name: imageUrl, widget: string },
+                ],
+            }
+          - { label: "Text", name: "body", widget: "markdown" }
+
+      - file: "src/pages/team/index.md"
+        label: "L'Equipe"
+        name: "team"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "team-page",
+            }
+          - { label: Image, name: image, widget: image }
+          - { label: Titre, name: title, widget: string }
+          - { label: Sous-titre, name: subtitle, widget: string }
+          - { label: Description, name: description, widget: string }
+          - {
+              label: "Equipes",
+              name: "teams",
+              widget: "list",
+              fields:
+                [
+                  { label: Nom, name: name, widget: string },
+                  { label: Description, name: description, widget: string },
+                  {
+                    label: Membres,
+                    name: members,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Nom, name: name, widget: string },
+                        { label: Fonction, name: function, widget: string },
+                        { label: Photo, name: image, widget: image },
+                      ],
+                  },
+                ],
+            }
