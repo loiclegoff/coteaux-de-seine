@@ -26,18 +26,6 @@ module.exports = {
         name: "pages",
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Coteaux de Seine`,
-        short_name: `CdS`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#003a5d`,
-        display: `standalone`,
-        icon: `static/img/favicon-base.png`, // This path is relative to the root of the site.
-      },
-    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -66,6 +54,18 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Coteaux de Seine`,
+        short_name: `CdS`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#003a5d`,
+        display: `standalone`,
+        icon: `${__dirname}/static/img/favicon-base.png`, // This path is relative to the root of the site.
       },
     },
     {
