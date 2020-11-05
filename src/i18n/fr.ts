@@ -1,6 +1,8 @@
 /* eslint-disable max-len  */
 /* eslint-disable @typescript-eslint/camelcase */
 
+import thanks from "../pages/contact/thanks";
+
 export const texts = {
   nav: {
     home: 'Coteaux de Seine',
@@ -16,7 +18,11 @@ export const texts = {
     yourName: 'Ton nom',
     yourEmail: 'Ton email',
     yourMessage: 'Ton message',
-    sendButton: 'Envoyer'
+    sendButton: 'Envoyer',
+    thanks: {
+      title: "Merci",
+      message: "Ton message a bien été envoyé"
+    }
   },
   index: {
     toolbox: "Boîte à outils",
